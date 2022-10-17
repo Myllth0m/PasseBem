@@ -1,6 +1,8 @@
-﻿@{
+﻿@using WebMVC.Models
+@{
     ViewBag.Title = "Clima tempo";
-    var cidade = ViewBag.Cidade;
+    List<CidadeViewModel> cidadesFrias = ViewBag.CidadesFrias;
+    List<CidadeViewModel> cidadesQuentes = ViewBag.CidadesQuentes;
 }
 
 <div class="jumbotron">
@@ -12,7 +14,7 @@
         <div class="panel panel-primary">
             <div class="panel-heading">Cidades mais quentes hoje</div>
             <div class="panel-body">
-                @cidade
+                @Html.Partial("_TemperaturaDasCidadesDeHoje", cidadesFrias)
             </div>
         </div>
     </div>
@@ -20,9 +22,7 @@
         <div class="panel panel-primary">
             <div class="panel-heading">Cidades mais frias hoje</div>
             <div class="panel-body">
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
+                @Html.Partial("_TemperaturaDasCidadesDeHoje", cidadesQuentes)
             </div>
         </div>
     </div>

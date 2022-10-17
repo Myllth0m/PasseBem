@@ -1,0 +1,9 @@
+﻿@model List<WebMVC.Models.CidadeViewModel>
+
+@foreach (var cidade in Model)
+{
+    <div class="row">
+        <div class="col-sm-6">@(cidade.Nome)/@(cidade.UF)</div>
+        <div class="col-sm-6 text-right">Min @(cidade.TemperaturaMinima)°C &#8195; Max @(cidade.TemperaturaMaxima)°C</div>
+    </div>
+}

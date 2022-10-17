@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using WebMVC.Data;
+using WebMVC.Models;
 
 namespace WebMVC.Controllers
 {
@@ -8,14 +10,14 @@ namespace WebMVC.Controllers
     {
         public ActionResult Index()
         {
-            var estados = new List<Estado>();
+            var cidade = new Cidade();
             
-            using (var contexto = new ClimaTempoSimplesEntities())
+            using (var contexto = new PasseBemContexto())
             {
-                estados = contexto.Estado.ToList();
+                cidade = contexto.Cidade.FirstOrDefault();
             }
 
-            ViewBag.Estados = estados.ToString();
+            ViewBag.Cidade = cidade.Nome;
             
             return View();
         }

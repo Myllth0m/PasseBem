@@ -128,34 +128,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Cidade.cs">
-      <DependentUpon>DataModelCotexto.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Cidade.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DataModelCotexto.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModelCotexto.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModelCotexto.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModelCotexto.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModelCotexto.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModelCotexto.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Estado.cs">
-      <DependentUpon>DataModelCotexto.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Estado.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="PrevisaoClima.cs">
-      <DependentUpon>DataModelCotexto.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Data\PasseBemContexto.cs" />
+    <Compile Include="Models\PrevisaoClima.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -163,29 +143,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="DataModelCotexto.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataModelCotexto.edmx</DependentUpon>
-      <LastGenOutput>DataModelCotexto.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DataModelCotexto.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataModelCotexto.edmx</DependentUpon>
-      <LastGenOutput>DataModelCotexto.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="DataModelCotexto.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataModelCotexto.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DataModelCotexto.edmx.diagram">
-      <DependentUpon>DataModelCotexto.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -214,7 +177,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

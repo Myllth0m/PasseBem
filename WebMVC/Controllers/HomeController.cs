@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace WebMVC.Controllers
@@ -10,6 +8,15 @@ namespace WebMVC.Controllers
     {
         public ActionResult Index()
         {
+            var estados = new List<Estado>();
+            
+            using (var contexto = new ClimaTempoSimplesEntities())
+            {
+                estados = contexto.Estado.ToList();
+            }
+
+            ViewBag.Estados = estados.ToString();
+            
             return View();
         }
 

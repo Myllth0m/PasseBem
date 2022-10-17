@@ -3,6 +3,7 @@
     ViewBag.Title = "Clima tempo";
     List<CidadeViewModel> cidadesFrias = ViewBag.CidadesFrias;
     List<CidadeViewModel> cidadesQuentes = ViewBag.CidadesQuentes;
+    List<Cidade> selectListDetodasAsCidades = ViewBag.SelectListDetodasAsCidades;
 }
 
 <div class="jumbotron">
@@ -14,7 +15,7 @@
         <div class="panel panel-primary">
             <div class="panel-heading">Cidades mais quentes hoje</div>
             <div class="panel-body">
-                @Html.Partial("_TemperaturaDasCidadesDeHoje", cidadesFrias)
+                @Html.Partial("_ClimaDasCidadesDeHoje", cidadesFrias)
             </div>
         </div>
     </div>
@@ -22,8 +23,40 @@
         <div class="panel panel-primary">
             <div class="panel-heading">Cidades mais frias hoje</div>
             <div class="panel-body">
-                @Html.Partial("_TemperaturaDasCidadesDeHoje", cidadesQuentes)
+                @Html.Partial("_ClimaDasCidadesDeHoje", cidadesQuentes)
             </div>
         </div>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-sm-12 text-right">
+        <label><strong>Cidade:</strong></label>
+        @Html.DropDownList("SelectDeTodasAsCidades", new SelectList(selectListDetodasAsCidades, "Id", "Nome"), "Selecione...")
+    </div>
+</div>
+
+<div id="climaSemanalParaCidadeSelecionada"></div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('select').on('change', function () {
+            let idDaCidadeSelecionada = $('option:selected', this).val()
+
+            if (idDaCidadeSelecionada == '') {
+                $('#climaSemanalParaCidadeSelecionada').html('')
+                $('#climaSemanalParaCidadeSelecionada').html('<div class="alert alert-warning text-center" role="alert"><h2>Selecione uma cidade para saber o clima semanal dela</h2></div>')
+            } else {
+                $.ajax({
+                    url: 'Home/ObterClimaSemanal',
+                    data: { idDaCidadeSelecionada },
+                    success: function (result) {
+                        $('#climaSemanalParaCidadeSelecionada').html('')
+                        $('#climaSemanalParaCidadeSelecionada').html(result)
+                    }
+                })
+            }
+        })
+    })
+</script>

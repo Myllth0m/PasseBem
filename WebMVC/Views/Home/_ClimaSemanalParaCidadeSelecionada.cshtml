@@ -1,0 +1,19 @@
+﻿@model List<WebMVC.Models.ClimaSemanalParaCidadeSelecionadaViewModel>
+
+<div class="row">
+    <h3 class="col-sm-12 text-center">Clima para os próximos sete dias na cidade de @(Model.First().NomeDaCidade)</h3>
+    @foreach (var climaDiarioDaCidade in Model)
+    {
+        <div class="col-md-2">
+            <div class="panel panel-primary">
+                <div class="panel-heading">@(climaDiarioDaCidade.DiaDaSemana)</div>
+                <div class="panel-body">
+                    <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>
+                    @(climaDiarioDaCidade.TempoClimatico) <br />
+                    Mínima: @(climaDiarioDaCidade.TemperaturaMinima)°C <br />
+                    Máxima: @(climaDiarioDaCidade.TemperaturaMaxima)°C
+                </div>
+            </div>
+        </div>
+    }
+</div>
